@@ -13,17 +13,6 @@
                     <p>Kabupaten Nganjuk</p>
                 </div>
             </div>
-
-            <!-- <div class="d-flex align-items-center ms-5 mt-4 gap-5">
-                <a href="#about" class="btn-get-started scrollto">Mulai</a>
-                <div class="d-flex align-items-center">
-                    <img src="{{ asset('frontend/assets/img/download.png') }}" alt="" height="40" class="me-2">
-                    <a href="#" class="btn-watch-video">
-                        <i class="bi bi-download"></i>
-                        <span>Download Aplikasi</span>
-                    </a>
-                </div>
-            </div> -->
         </div>
     </div>
 </section>
