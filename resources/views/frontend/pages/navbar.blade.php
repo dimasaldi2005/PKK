@@ -16,7 +16,7 @@
 
         <li class="dropdown"><a href="#informasi"><span>Informasi</span> <i class="bi bi-chevron-down dropdown-toggle"></i></a>
           <ul>
-            <li><a href="">Berita</a></li>
+            <li><a href="berita">Berita</a></li>
             {{-- <li><a href="">Laporan Kesehatan</a>
         </li>
         <li><a href="">Laporan Kelestarian Lingkungan Hidup</a></li>

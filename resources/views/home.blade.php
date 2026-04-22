@@ -193,7 +193,7 @@
                         <div class="card-body">
                             <h5>Kelompok Kerja 2</h5>
                             <p>
-                                Membidangi Pendidikan & Peningkatan Ekonomi Keluarga...
+                                Membidangi Pendidikan & Peningkatan Ekonomi Keluarga, mengelola program pendidikan & keterampilan, serta pengalaman kehidupan berkoperasi.
                             </p>
                             <a href="#">Baca Selengkapnya</a>
                         </div>
@@ -209,7 +209,7 @@
                         <div class="card-body">
                             <h5>Kelompok Kerja 3</h5>
                             <p>
-                                Membidangi penguatan ketahanan keluarga...
+                                Membidangi penguatan ketahanan keluarga meliputi program Pangan, Sandang, serta Perumahan dan Tata Laksana Rumah Tangga, serta pendataan industri dan rumah tangga.
                             </p>
                             <a href="#">Baca Selengkapnya</a>
                         </div>
@@ -225,7 +225,7 @@
                         <div class="card-body">
                             <h5>Kelompok Kerja 4</h5>
                             <p>
-                                Membidangi penguatan ketahanan keluarga...
+                                MMembidangi Kesehatan Keluarga dan Lingkungan, diantaranya mengelola program kesehatan, Kelestarian lingkungan hidup dan perencanaan sehat.
                             </p>
                             <a href="#">Baca Selengkapnya</a>
                         </div>
