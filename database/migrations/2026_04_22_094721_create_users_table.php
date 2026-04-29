@@ -14,10 +14,22 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('nomer_tlp')->nullable();
-            $table->string('alamat');
+
+            // login kabupaten
+            $table->string('email')->unique()->nullable();
+
+            // login kecamatan/desa
+            $table->string('nomer_tlp')->unique()->nullable();
+
+            $table->string('alamat')->nullable();
             $table->string('password');
+
+            // ROLE SYSTEM
+            $table->enum('role', ['kabupaten', 'kecamatan', 'desa']);
+
+            // PLATFORM ACCESS
+            $table->enum('platform', ['web', 'mobile', 'both'])->default('mobile');
+
             $table->rememberToken();
             $table->timestamps();
         });
