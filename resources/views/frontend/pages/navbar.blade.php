@@ -21,7 +21,7 @@
         </li>
         <li><a href="">Laporan Kelestarian Lingkungan Hidup</a></li>
         <li><a href="">Laporan Perencanaan Sehat</a></li> --}}
-            <li><a href="">Pengumuman</a></li>
+            <li><a href="{{ route('pengumuman.index') }}">Pengumuman</a></li>
           </ul>
         </li>
         <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down dropdown-toggle"></i></a>

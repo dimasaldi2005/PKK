@@ -163,79 +163,83 @@
 
         <div class="container" data-aos="fade-up">
             <div class="section-title">
-                <h2>Program Kerja</h2>
-                <h3>Program Kerja PKK <span>Kabupaten Nganjuk </span></h3>
-                <p>Program Kerja yang akan dikerjakan Ketua PKK Kabupaten Nganjuk.</p>
+                <h2>Berita Terbaru</h2>
+                <h3>Berita PKK <span>Kabupaten Nganjuk </span></h3>
+                <p>Berita dan informasi terkini dari PKK Kabupaten Nganjuk.</p>
             </div>
             <div class="row gy-3">
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card custom-card">
-                        <div class="card-img">
-                            <img src="{{ asset('frontend/assets/img/galeri1.jpeg')}}" alt="" class="img-fluid">
-                        </div>
-                        <div class="card-body">
-                            <h5>Kelompok Kerja 1</h5>
-                            <p>
-                                Membidangi Pembinaan Karakter dalam Keluarga, yang di antaranya mengelola
-                                program Penghayatan dan Pengalaman Pancasila serta Gotong Royong.
-                            </p>
-                            <a href="#">Baca Selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Card Item -->
-
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card custom-card">
-                        <div class="card-img">
-                            <img src="{{ asset('frontend/assets/img/galeri2.jpeg')}}" alt="" class="img-fluid">
-                        </div>
-                        <div class="card-body">
-                            <h5>Kelompok Kerja 2</h5>
-                            <p>
-                                Membidangi Pendidikan & Peningkatan Ekonomi Keluarga, mengelola program pendidikan & keterampilan, serta pengalaman kehidupan berkoperasi.
-                            </p>
-                            <a href="#">Baca Selengkapnya</a>
+                @forelse($berita as $item)
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card custom-card">
+                            <div class="card-img">
+                                @if($item->image)
+                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->judul }}" class="img-fluid" style="height: 200px; object-fit: cover;">
+                                @else
+                                    <div style="height: 200px; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center;">
+                                        <i class="bi bi-image" style="font-size: 48px; color: #999;"></i>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="card-body">
+                                <h5>{{ $item->judul }}</h5>
+                                <p>{{ Str::limit($item->deskripsi, 100) }}</p>
+                                <small class="text-muted">{{ $item->created_at->format('d F Y') }}</small>
+                                <br>
+                                <a href="{{ route('berita.show', $item->id) }}" class="btn btn-sm btn-primary mt-2">Baca Selengkapnya</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- End Card Item -->
-
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card custom-card">
-                        <div class="card-img">
-                            <img src="{{ asset('frontend/assets/img/galeri1.jpeg')}}" alt="" class="img-fluid">
-                        </div>
-                        <div class="card-body">
-                            <h5>Kelompok Kerja 3</h5>
-                            <p>
-                                Membidangi penguatan ketahanan keluarga meliputi program Pangan, Sandang, serta Perumahan dan Tata Laksana Rumah Tangga, serta pendataan industri dan rumah tangga.
-                            </p>
-                            <a href="#">Baca Selengkapnya</a>
-                        </div>
+                @empty
+                    <div class="col-12">
+                        <p class="text-center text-muted">Belum ada berita</p>
                     </div>
-                </div>
-                <!-- End Card Item -->
-
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="card custom-card">
-                        <div class="card-img">
-                            <img src="{{ asset('frontend/assets/img/galeri2.jpeg')}}" alt="" class="img-fluid">
-                        </div>
-                        <div class="card-body">
-                            <h5>Kelompok Kerja 4</h5>
-                            <p>
-                                MMembidangi Kesehatan Keluarga dan Lingkungan, diantaranya mengelola program kesehatan, Kelestarian lingkungan hidup dan perencanaan sehat.
-                            </p>
-                            <a href="#">Baca Selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
             <!-- End Card Item -->
+            <div class="text-center mt-4">
+                <a href="{{ route('berita.index') }}" class="btn btn-primary">Lihat Semua Berita</a>
+            </div>
         </div>
     </section>
     <!-- End Services Section -->
+
+    <!-- ======= Pengumuman Section ======= -->
+    <section id="pengumuman" class="services">
+
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Pengumuman Terbaru</h2>
+                <h3>Pengumuman PKK <span>Kabupaten Nganjuk </span></h3>
+                <p>Pengumuman penting dari PKK Kabupaten Nganjuk.</p>
+            </div>
+            <div class="row gy-3">
+                @forelse($pengumuman as $item)
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card custom-card">
+                            <div class="card-body">
+                                <h5>{{ $item->judul }}</h5>
+                                <p>{{ Str::limit($item->deskripsi, 100) }}</p>
+                                <small class="text-muted"><strong>Tempat:</strong> {{ $item->tempat }}</small>
+                                <br>
+                                <small class="text-muted"><strong>Tanggal:</strong> {{ $item->tanggal->format('d F Y') }}</small>
+                                <br>
+                                <a href="{{ route('pengumuman.show', $item->id) }}" class="btn btn-sm btn-primary mt-2">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <div class="col-12">
+                        <p class="text-center text-muted">Belum ada pengumuman</p>
+                    </div>
+                @endforelse
+            </div>
+            <!-- End Card Item -->
+            <div class="text-center mt-4">
+                <a href="{{ route('pengumuman.index') }}" class="btn btn-primary">Lihat Semua Pengumuman</a>
+            </div>
+        </div>
+    </section>
+    <!-- End Pengumuman Section -->
 </main>
 <!-- End #main -->
 
