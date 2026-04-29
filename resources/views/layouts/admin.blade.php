@@ -318,7 +318,7 @@
         <div class="sidebar">
             <ul class="sidebar-menu">
                 <li>
-                    <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">
+                    <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
                         <i class="bi bi-grid-3x3-gap"></i>
                         <span>Dashboard</span>
                     </a>

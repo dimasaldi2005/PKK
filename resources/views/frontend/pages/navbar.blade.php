@@ -33,7 +33,7 @@
             <li><a href="">Mars PKK</a></li>
           </ul>
         </li>
-        <li class="btn-login"><a href="">Masuk</a></li>
+        <li class="btn-login"><a href="{{ route('login') }}">Masuk</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->

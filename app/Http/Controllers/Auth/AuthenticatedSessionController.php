@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller
                 'password' => $password
             ])) {
                 $request->session()->regenerate();
-                return redirect()->route('admin.dashboard');
+                return redirect()->route('dashboard');
             }
         } else {
 
@@ -51,7 +51,7 @@ class AuthenticatedSessionController extends Controller
                 'password' => $password
             ])) {
                 $request->session()->regenerate();
-                return redirect()->route('admin.dashboard');
+                return redirect()->route('dashboard');
             }
         }
 
