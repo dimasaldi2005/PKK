@@ -1,0 +1,190 @@
+/* ===== BACKGROUND FULL ===== */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+
+    background:
+        linear-gradient(rgba(1,106,163,0.5), rgba(1,106,163,0.5)), /* 🔥 ganti warna */
+        url("../img/login.png") no-repeat center center;
+
+    background-size: cover;
+    height: 100vh;
+}
+
+.text-center a {
+  text-decoration: none;
+}
+
+/* ===== WRAPPER ===== */
+.login-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ===== CARD ===== */
+.login-card {
+    width: 950px;
+    height: 550px;
+    border-radius: 20px;
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+/* ===== ROW FULL HEIGHT ===== */
+.login-card .row {
+    height: 100%;
+}
+
+/* ===== COL FULL HEIGHT ===== */
+.login-card .row > div {
+    height: 100%;
+}
+
+/* ===== KIRI ===== */
+.login-left {
+    background: transparent;
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+}
+
+/* ===== KANAN ===== */
+.login-right {
+    background: rgba(255,255,255,0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+}
+
+/* ===== FORM ===== */
+.login-right form {
+    width: 100%;
+}
+
+/* ===== TITLE ===== */
+.login-right h2 {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #016AA3; /* 🔥 utama */
+}
+
+/* ===== INPUT ===== */
+.form-control {
+    border-radius: 10px;
+    padding: 12px;
+}
+
+/* focus biar nyatu warna */
+.form-control:focus {
+    border-color: #016AA3;
+    box-shadow: 0 0 5px rgba(1,106,163,0.4);
+}
+
+/* ===== BUTTON ===== */
+.btn-primary {
+    border-radius: 10px;
+    padding: 12px;
+    background: linear-gradient(to right, #016AA3, #0288d1); /* 🔥 gradasi senada */
+    border: none;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+/* ===== LINK ===== */
+a {
+    color: #016AA3;
+}
+
+a:hover {
+    color: #014f7a;
+}
+/* ===== LOGO ANIMATION ===== */
+.logo-animate {
+    animation: floatLogo 3s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ===== TYPING TEXT (UNTUK JS LOOP) ===== */
+.typing-text {
+    white-space: nowrap;
+    font-weight: 600;
+    font-size: 20px;
+    min-height: 28px;
+}
+
+/* cursor berkedip */
+.typing-text::after {
+    content: "|";
+    margin-left: 5px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .login-card {
+        width: 100%;
+        height: auto;
+    }
+
+    .login-left {
+        display: none;
+    }
+
+    .login-right {
+        padding: 25px;
+    }
+}
+
+/* ===== LOGO MASUK ===== */
+.logo-enter {
+    animation: logoFadeZoom 1s ease forwards, floatLogo 3s ease-in-out infinite;
+}
+
+@keyframes logoFadeZoom {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ===== BUTTON MASUK ===== */
+.btn-enter {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: buttonSlideUp 1s ease forwards;
+    animation-delay: 0.5s; /* 🔥 biar muncul setelah logo */
+}
+
+@keyframes buttonSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
