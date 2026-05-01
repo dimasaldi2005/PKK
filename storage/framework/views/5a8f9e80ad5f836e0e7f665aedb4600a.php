@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Admin - PKK Kabupaten Nganjuk')</title>
+    <title><?php echo $__env->yieldContent('title', 'Admin - PKK Kabupaten Nganjuk'); ?></title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -330,7 +330,7 @@
 <body>
     <!-- Top Header -->
     <div class="top-header">
-        <img src="{{ asset('frontend/assets/img/logo.png') }}" alt="Logo">
+        <img src="<?php echo e(asset('frontend/assets/img/logo.png')); ?>" alt="Logo">
         <div>
             <h5>Pemberdayaan Kesejahteraan Keluarga<br>Kabupaten Nganjuk</h5>
         </div>
@@ -341,97 +341,97 @@
         <div class="sidebar">
             <ul class="sidebar-menu">
                 <li>
-                    <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                    <a href="<?php echo e(route('dashboard')); ?>" class="<?php echo e(request()->routeIs('dashboard') ? 'active' : ''); ?>">
                         <i class="bi bi-grid-3x3-gap"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('tanda-tangan.index') }}" class="{{ request()->routeIs('tanda-tangan.*') ? 'active' : '' }}">
+                    <a href="<?php echo e(route('tanda-tangan.index')); ?>" class="<?php echo e(request()->routeIs('tanda-tangan.*') ? 'active' : ''); ?>">
                         <i class="bi bi-pencil-square"></i>
                         <span>Tanda Tangan</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('berita.index') }}" class="{{ request()->routeIs('berita.*') ? 'active' : '' }}">
+                    <a href="<?php echo e(route('berita.index')); ?>" class="<?php echo e(request()->routeIs('berita.*') ? 'active' : ''); ?>">
                         <i class="bi bi-newspaper"></i>
                         <span>Berita</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('pengumuman.index') }}" class="{{ request()->routeIs('pengumuman.*') ? 'active' : '' }}">
+                    <a href="<?php echo e(route('pengumuman.index')); ?>" class="<?php echo e(request()->routeIs('pengumuman.*') ? 'active' : ''); ?>">
                         <i class="bi bi-megaphone"></i>
                         <span>Pengumuman</span>
                     </a>
                 </li>
                 <li>
                     <a href="#" onclick="toggleMenu(event, 'galeriMenu')" id="galeriToggle"
-                       class="{{ request()->is('galeri/*') ? 'active' : '' }}"
-                       style="display: flex; align-items: center; gap: 15px; padding: 12px 15px; color: {{ request()->is('galeri/*') ? '#0066cc' : '#666' }}; text-decoration: none; font-size: 14px; border-left: 4px solid {{ request()->is('galeri/*') ? '#0066cc' : 'transparent' }}; background: {{ request()->is('galeri/*') ? '#e8f0ff' : 'transparent' }}; font-weight: {{ request()->is('galeri/*') ? '600' : 'normal' }};">
+                       class="<?php echo e(request()->is('galeri/*') ? 'active' : ''); ?>"
+                       style="display: flex; align-items: center; gap: 15px; padding: 12px 15px; color: <?php echo e(request()->is('galeri/*') ? '#0066cc' : '#666'); ?>; text-decoration: none; font-size: 14px; border-left: 4px solid <?php echo e(request()->is('galeri/*') ? '#0066cc' : 'transparent'); ?>; background: <?php echo e(request()->is('galeri/*') ? '#e8f0ff' : 'transparent'); ?>; font-weight: <?php echo e(request()->is('galeri/*') ? '600' : 'normal'); ?>;">
                         <i class="bi bi-images" style="font-size: 20px; width: 24px; text-align: center;"></i>
                         <span style="flex: 1;">Galeri</span>
-                        <i class="bi bi-chevron-down" id="galeriArrow" style="font-size: 12px; transition: transform 0.3s; {{ request()->is('galeri/*') ? 'transform: rotate(180deg);' : '' }}"></i>
+                        <i class="bi bi-chevron-down" id="galeriArrow" style="font-size: 12px; transition: transform 0.3s; <?php echo e(request()->is('galeri/*') ? 'transform: rotate(180deg);' : ''); ?>"></i>
                     </a>
-                    <div id="galeriMenu" style="{{ request()->is('galeri/*') ? 'display:block;' : 'display:none;' }} background: #f0f4ff; overflow: hidden;">
-                        <a href="{{ route('galeri.bidang-umum') }}"
-                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: {{ request()->is('galeri/bidang-umum') ? '#0066cc' : '#666' }}; text-decoration: none; font-weight: {{ request()->is('galeri/bidang-umum') ? '600' : 'normal' }};">
-                            <span style="width: 6px; height: 6px; border-radius: 50%; background: {{ request()->is('galeri/bidang-umum') ? '#0066cc' : '#aaa' }}; flex-shrink: 0;"></span>
+                    <div id="galeriMenu" style="<?php echo e(request()->is('galeri/*') ? 'display:block;' : 'display:none;'); ?> background: #f0f4ff; overflow: hidden;">
+                        <a href="<?php echo e(route('galeri.bidang-umum')); ?>"
+                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: <?php echo e(request()->is('galeri/bidang-umum') ? '#0066cc' : '#666'); ?>; text-decoration: none; font-weight: <?php echo e(request()->is('galeri/bidang-umum') ? '600' : 'normal'); ?>;">
+                            <span style="width: 6px; height: 6px; border-radius: 50%; background: <?php echo e(request()->is('galeri/bidang-umum') ? '#0066cc' : '#aaa'); ?>; flex-shrink: 0;"></span>
                             Bidang Umum
                         </a>
-                        <a href="{{ route('galeri.pokja1') }}"
-                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: {{ request()->is('galeri/pokja1') ? '#0066cc' : '#666' }}; text-decoration: none; font-weight: {{ request()->is('galeri/pokja1') ? '600' : 'normal' }};">
-                            <span style="width: 6px; height: 6px; border-radius: 50%; background: {{ request()->is('galeri/pokja1') ? '#0066cc' : '#aaa' }}; flex-shrink: 0;"></span>
+                        <a href="<?php echo e(route('galeri.pokja1')); ?>"
+                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: <?php echo e(request()->is('galeri/pokja1') ? '#0066cc' : '#666'); ?>; text-decoration: none; font-weight: <?php echo e(request()->is('galeri/pokja1') ? '600' : 'normal'); ?>;">
+                            <span style="width: 6px; height: 6px; border-radius: 50%; background: <?php echo e(request()->is('galeri/pokja1') ? '#0066cc' : '#aaa'); ?>; flex-shrink: 0;"></span>
                             Kelompok Kerja 1
                         </a>
-                        <a href="{{ route('galeri.pokja2') }}"
-                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: {{ request()->is('galeri/pokja2') ? '#0066cc' : '#666' }}; text-decoration: none; font-weight: {{ request()->is('galeri/pokja2') ? '600' : 'normal' }};">
-                            <span style="width: 6px; height: 6px; border-radius: 50%; background: {{ request()->is('galeri/pokja2') ? '#0066cc' : '#aaa' }}; flex-shrink: 0;"></span>
+                        <a href="<?php echo e(route('galeri.pokja2')); ?>"
+                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: <?php echo e(request()->is('galeri/pokja2') ? '#0066cc' : '#666'); ?>; text-decoration: none; font-weight: <?php echo e(request()->is('galeri/pokja2') ? '600' : 'normal'); ?>;">
+                            <span style="width: 6px; height: 6px; border-radius: 50%; background: <?php echo e(request()->is('galeri/pokja2') ? '#0066cc' : '#aaa'); ?>; flex-shrink: 0;"></span>
                             Kelompok Kerja 2
                         </a>
-                        <a href="{{ route('galeri.pokja3') }}"
-                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: {{ request()->is('galeri/pokja3') ? '#0066cc' : '#666' }}; text-decoration: none; font-weight: {{ request()->is('galeri/pokja3') ? '600' : 'normal' }};">
-                            <span style="width: 6px; height: 6px; border-radius: 50%; background: {{ request()->is('galeri/pokja3') ? '#0066cc' : '#aaa' }}; flex-shrink: 0;"></span>
+                        <a href="<?php echo e(route('galeri.pokja3')); ?>"
+                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: <?php echo e(request()->is('galeri/pokja3') ? '#0066cc' : '#666'); ?>; text-decoration: none; font-weight: <?php echo e(request()->is('galeri/pokja3') ? '600' : 'normal'); ?>;">
+                            <span style="width: 6px; height: 6px; border-radius: 50%; background: <?php echo e(request()->is('galeri/pokja3') ? '#0066cc' : '#aaa'); ?>; flex-shrink: 0;"></span>
                             Kelompok Kerja 3
                         </a>
-                        <a href="{{ route('galeri.pokja4') }}"
-                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: {{ request()->is('galeri/pokja4') ? '#0066cc' : '#666' }}; text-decoration: none; font-weight: {{ request()->is('galeri/pokja4') ? '600' : 'normal' }};">
-                            <span style="width: 6px; height: 6px; border-radius: 50%; background: {{ request()->is('galeri/pokja4') ? '#0066cc' : '#aaa' }}; flex-shrink: 0;"></span>
+                        <a href="<?php echo e(route('galeri.pokja4')); ?>"
+                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: <?php echo e(request()->is('galeri/pokja4') ? '#0066cc' : '#666'); ?>; text-decoration: none; font-weight: <?php echo e(request()->is('galeri/pokja4') ? '600' : 'normal'); ?>;">
+                            <span style="width: 6px; height: 6px; border-radius: 50%; background: <?php echo e(request()->is('galeri/pokja4') ? '#0066cc' : '#aaa'); ?>; flex-shrink: 0;"></span>
                             Kelompok Kerja 4
                         </a>
                     </div>
                 </li>
                 <li>
                     <a href="#" onclick="toggleMenu(event, 'pokjaMenu')" id="pokjaToggle"
-                       class="{{ request()->is('kelompok-kerja/*') ? 'active' : '' }}"
-                       style="display: flex; align-items: center; gap: 15px; padding: 12px 15px; color: {{ request()->is('kelompok-kerja/*') ? '#0066cc' : '#666' }}; text-decoration: none; font-size: 14px; border-left: 4px solid {{ request()->is('kelompok-kerja/*') ? '#0066cc' : 'transparent' }}; background: {{ request()->is('kelompok-kerja/*') ? '#e8f0ff' : 'transparent' }}; font-weight: {{ request()->is('kelompok-kerja/*') ? '600' : 'normal' }};">
+                       class="<?php echo e(request()->is('kelompok-kerja/*') ? 'active' : ''); ?>"
+                       style="display: flex; align-items: center; gap: 15px; padding: 12px 15px; color: <?php echo e(request()->is('kelompok-kerja/*') ? '#0066cc' : '#666'); ?>; text-decoration: none; font-size: 14px; border-left: 4px solid <?php echo e(request()->is('kelompok-kerja/*') ? '#0066cc' : 'transparent'); ?>; background: <?php echo e(request()->is('kelompok-kerja/*') ? '#e8f0ff' : 'transparent'); ?>; font-weight: <?php echo e(request()->is('kelompok-kerja/*') ? '600' : 'normal'); ?>;">
                         <i class="bi bi-briefcase" style="font-size: 20px; width: 24px; text-align: center;"></i>
                         <span style="flex: 1;">Kelompok Kerja</span>
-                        <i class="bi bi-chevron-down" id="pokjaArrow" style="font-size: 12px; transition: transform 0.3s; {{ request()->is('kelompok-kerja/*') ? 'transform: rotate(180deg);' : '' }}"></i>
+                        <i class="bi bi-chevron-down" id="pokjaArrow" style="font-size: 12px; transition: transform 0.3s; <?php echo e(request()->is('kelompok-kerja/*') ? 'transform: rotate(180deg);' : ''); ?>"></i>
                     </a>
-                    <div id="pokjaMenu" style="{{ request()->is('kelompok-kerja/*') ? 'display:block;' : 'display:none;' }} background: #f0f4ff; overflow: hidden;">
-                        <a href="{{ route('kelompok-kerja.bidang-umum') }}"
-                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: {{ request()->is('kelompok-kerja/bidang-umum') ? '#0066cc' : '#666' }}; text-decoration: none; font-weight: {{ request()->is('kelompok-kerja/bidang-umum') ? '600' : 'normal' }};">
-                            <span style="width: 6px; height: 6px; border-radius: 50%; background: {{ request()->is('kelompok-kerja/bidang-umum') ? '#0066cc' : '#aaa' }}; flex-shrink: 0;"></span>
+                    <div id="pokjaMenu" style="<?php echo e(request()->is('kelompok-kerja/*') ? 'display:block;' : 'display:none;'); ?> background: #f0f4ff; overflow: hidden;">
+                        <a href="<?php echo e(route('kelompok-kerja.bidang-umum')); ?>"
+                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: <?php echo e(request()->is('kelompok-kerja/bidang-umum') ? '#0066cc' : '#666'); ?>; text-decoration: none; font-weight: <?php echo e(request()->is('kelompok-kerja/bidang-umum') ? '600' : 'normal'); ?>;">
+                            <span style="width: 6px; height: 6px; border-radius: 50%; background: <?php echo e(request()->is('kelompok-kerja/bidang-umum') ? '#0066cc' : '#aaa'); ?>; flex-shrink: 0;"></span>
                             Bidang Umum
                         </a>
-                        <a href="{{ route('kelompok-kerja.pokja1') }}"
-                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: {{ request()->is('kelompok-kerja/pokja1') ? '#0066cc' : '#666' }}; text-decoration: none; font-weight: {{ request()->is('kelompok-kerja/pokja1') ? '600' : 'normal' }};">
-                            <span style="width: 6px; height: 6px; border-radius: 50%; background: {{ request()->is('kelompok-kerja/pokja1') ? '#0066cc' : '#aaa' }}; flex-shrink: 0;"></span>
+                        <a href="<?php echo e(route('kelompok-kerja.pokja1')); ?>"
+                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: <?php echo e(request()->is('kelompok-kerja/pokja1') ? '#0066cc' : '#666'); ?>; text-decoration: none; font-weight: <?php echo e(request()->is('kelompok-kerja/pokja1') ? '600' : 'normal'); ?>;">
+                            <span style="width: 6px; height: 6px; border-radius: 50%; background: <?php echo e(request()->is('kelompok-kerja/pokja1') ? '#0066cc' : '#aaa'); ?>; flex-shrink: 0;"></span>
                             Kelompok Kerja 1
                         </a>
-                        <a href="{{ route('kelompok-kerja.pokja2') }}"
-                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: {{ request()->is('kelompok-kerja/pokja2') ? '#0066cc' : '#666' }}; text-decoration: none; font-weight: {{ request()->is('kelompok-kerja/pokja2') ? '600' : 'normal' }};">
-                            <span style="width: 6px; height: 6px; border-radius: 50%; background: {{ request()->is('kelompok-kerja/pokja2') ? '#0066cc' : '#aaa' }}; flex-shrink: 0;"></span>
+                        <a href="<?php echo e(route('kelompok-kerja.pokja2')); ?>"
+                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: <?php echo e(request()->is('kelompok-kerja/pokja2') ? '#0066cc' : '#666'); ?>; text-decoration: none; font-weight: <?php echo e(request()->is('kelompok-kerja/pokja2') ? '600' : 'normal'); ?>;">
+                            <span style="width: 6px; height: 6px; border-radius: 50%; background: <?php echo e(request()->is('kelompok-kerja/pokja2') ? '#0066cc' : '#aaa'); ?>; flex-shrink: 0;"></span>
                             Kelompok Kerja 2
                         </a>
-                        <a href="{{ route('kelompok-kerja.pokja3') }}"
-                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: {{ request()->is('kelompok-kerja/pokja3') ? '#0066cc' : '#666' }}; text-decoration: none; font-weight: {{ request()->is('kelompok-kerja/pokja3') ? '600' : 'normal' }};">
-                            <span style="width: 6px; height: 6px; border-radius: 50%; background: {{ request()->is('kelompok-kerja/pokja3') ? '#0066cc' : '#aaa' }}; flex-shrink: 0;"></span>
+                        <a href="<?php echo e(route('kelompok-kerja.pokja3')); ?>"
+                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: <?php echo e(request()->is('kelompok-kerja/pokja3') ? '#0066cc' : '#666'); ?>; text-decoration: none; font-weight: <?php echo e(request()->is('kelompok-kerja/pokja3') ? '600' : 'normal'); ?>;">
+                            <span style="width: 6px; height: 6px; border-radius: 50%; background: <?php echo e(request()->is('kelompok-kerja/pokja3') ? '#0066cc' : '#aaa'); ?>; flex-shrink: 0;"></span>
                             Kelompok Kerja 3
                         </a>
-                        <a href="{{ route('kelompok-kerja.pokja4') }}"
-                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: {{ request()->is('kelompok-kerja/pokja4') ? '#0066cc' : '#666' }}; text-decoration: none; font-weight: {{ request()->is('kelompok-kerja/pokja4') ? '600' : 'normal' }};">
-                            <span style="width: 6px; height: 6px; border-radius: 50%; background: {{ request()->is('kelompok-kerja/pokja4') ? '#0066cc' : '#aaa' }}; flex-shrink: 0;"></span>
+                        <a href="<?php echo e(route('kelompok-kerja.pokja4')); ?>"
+                           style="display: flex; align-items: center; gap: 10px; padding: 10px 15px 10px 30px; font-size: 13px; color: <?php echo e(request()->is('kelompok-kerja/pokja4') ? '#0066cc' : '#666'); ?>; text-decoration: none; font-weight: <?php echo e(request()->is('kelompok-kerja/pokja4') ? '600' : 'normal'); ?>;">
+                            <span style="width: 6px; height: 6px; border-radius: 50%; background: <?php echo e(request()->is('kelompok-kerja/pokja4') ? '#0066cc' : '#aaa'); ?>; flex-shrink: 0;"></span>
                             Kelompok Kerja 4
                         </a>
                     </div>
@@ -444,14 +444,14 @@
                 <div class="sidebar-section-title">AKUN</div>
                 <ul class="sidebar-menu">
                     <li>
-                        <a href="{{ route('profil.index') }}" class="{{ request()->routeIs('profil.*') ? 'active' : '' }}">
+                        <a href="<?php echo e(route('profil.index')); ?>" class="<?php echo e(request()->routeIs('profil.*') ? 'active' : ''); ?>">
                             <i class="bi bi-person-circle"></i>
                             <span>Profil</span>
                         </a>
                     </li>
                     <li>
-                        <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
-                            @csrf
+                        <form action="<?php echo e(route('logout')); ?>" method="POST" style="margin: 0;">
+                            <?php echo csrf_field(); ?>
                             <button type="submit" style="background: none; border: none; width: 100%; text-align: left; cursor: pointer;">
                                 <a href="#" onclick="event.preventDefault(); this.closest('form').submit();"
                                    class="d-flex align-items-center gap-3"
@@ -469,28 +469,29 @@
         <!-- Main Content -->
         <div class="main-content">
             <!-- Alert Messages -->
-            @if ($errors->any())
+            <?php if($errors->any()): ?>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>Error!</strong>
                     <ul class="mb-0">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
+                        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <li><?php echo e($error); ?></li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ul>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-            @endif
+            <?php endif; ?>
 
-            @if (session('success'))
+            <?php if(session('success')): ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('success') }}
+                    <?php echo e(session('success')); ?>
+
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-            @endif
+            <?php endif; ?>
 
             <!-- Content -->
             <div class="content-card">
-                @yield('content')
+                <?php echo $__env->yieldContent('content'); ?>
             </div>
         </div>
     </div>
@@ -515,3 +516,4 @@
     </script>
 </body>
 </html>
+<?php /**PATH D:\PKK\resources\views/layouts/admin.blade.php ENDPATH**/ ?>
